@@ -4,8 +4,8 @@ extends CharacterBody2D
 const speed = 300
 var can_laser = true
 var can_grenade = true
-signal player_laser(pos)
-signal player_grenade(pos)
+signal player_laser(pos, direction)
+signal player_grenade(pos, direction)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,18 +14,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	velocity = direction * speed
+	var move = Input.get_vector("Left", "Right", "Up", "Down")
+	velocity = move * speed
 	move_and_slide()
 	
+	var mouse_pos = get_global_mouse_position()
+	look_at(mouse_pos)
 	if Input.is_action_pressed("Primary") and can_laser:
 		can_laser = false
 		$LaserTimer.start()
-		player_laser.emit($ShootStartMarker.global_position)
+		# need to find the play direction, from current player position to current mouse position
+		# Vect2_mousePos - Vect2_playerPos
+		var direction = (mouse_pos - position).normalized()
+		player_laser.emit($ShootStartMarker.global_position, direction)
 	if Input.is_action_pressed("Secondary") and can_grenade:
 		can_grenade = false
 		$GrenadeTimer.start()
-		player_grenade.emit($ShootStartMarker.global_position)
+		var direction = (mouse_pos - position).normalized()
+		player_grenade.emit($ShootStartMarker.global_position, direction)
 
 
 func _on_laser_timer_timeout():

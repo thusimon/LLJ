@@ -17,6 +17,7 @@ build_mode = 1
 polygon = PackedVector2Array(-369, 778, -1245, 778, -1334, 736, -1395, 671, -1431, 586, -1440, 496, -1437, -786, 1559, -780, 1558, 573, 1534, 641, 1489, 701, 1426, 750, 1353, 775, 482, 779, 482, 585, -370, 585)
 
 [node name="Entry" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
 position = Vector2(58, 690)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0i77x3oja74a"]
+[gd_scene load_steps=17 format=3 uid="uid://d0i77x3oja74a"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_8ki7d"]
 [ext_resource type="Texture2D" uid="uid://bhmicf3yx7qkx" path="res://resources/graphics/ground/stones.png" id="2_chdpu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bk5ucegj5h8hx" path="res://resources/graphics/tilesets/outside_walls.png" id="8_6r2qa"]
 [ext_resource type="Texture2D" uid="uid://cqukh25fscrss" path="res://resources/graphics/tilesets/soil.png" id="9_0uidq"]
 [ext_resource type="PackedScene" uid="uid://x8w7jokqk2qw" path="res://scenes/objects/house.tscn" id="10_kbkbj"]
+[ext_resource type="PackedScene" uid="uid://bxr2pbg8or2eh" path="res://scenes/objects/smoke_vent.tscn" id="13_aqwcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ophxe"]
 resource_name = "Walls"
@@ -122,6 +123,9 @@ zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="SmokeVent" parent="." instance=ExtResource("13_aqwcq")]
+position = Vector2(-510, 1000)
 
 [connection signal="body_entered" from="Gate" to="." method="_on_gate_body_entered"]
 [connection signal="body_exited" from="Gate" to="." method="_on_gate_body_exited"]

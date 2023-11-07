@@ -22,6 +22,7 @@ func _process(_delta):
 	look_at(mouse_pos)
 	if Input.is_action_pressed("Primary") and can_laser:
 		can_laser = false
+		$GPUParticles2D.emitting = true
 		$LaserTimer.start()
 		# need to find the play direction, from current player position to current mouse position
 		# Vect2_mousePos - Vect2_playerPos

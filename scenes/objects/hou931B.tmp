@@ -242,12 +242,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_h67uq")
 
 [node name="House" type="Area2D"]
-collision_layer = 4
-collision_mask = 19
 script = ExtResource("1_l4eco")
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-2818, -1424, -2756, -1436, -388, -1438, -383, -1295, 390, -1287, 389, -1432, 2751, -1436, 2817, -1423, 2862, -1403, 2905, -1376, 2937, -1342, 2962, -1308, 2981, -1265, 2995, -1220, 2996, 1205, 2985, 1258, 2957, 1316, 2920, 1362, 2876, 1396, 2832, 1418, 2772, 1434, -2748, 1436, -2808, 1427, -2873, 1400, -2919, 1361, -2952, 1323, -2976, 1280, -2992, 1229, -2997, 1200, -2997, -1191, -2994, -1215, -2988, -1243, -2980, -1266, -2958, -1315, -2917, -1367, -2869, -1401)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bp4w5")

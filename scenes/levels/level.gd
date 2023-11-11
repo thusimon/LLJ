@@ -12,11 +12,13 @@ func _process(delta):
 	pass
 
 func _on_gate_body_entered(body):
-	print('entered: ', body)
+	print('entered gate')
+	var tween = create_tween()
+	tween.tween_property($Player, 'speed', 0, 0.5)
 
 
 func _on_gate_body_exited(body):
-	print('exit: ', body)
+	pass
 
 
 func _on_player_player_laser(pos, direction):
@@ -31,3 +33,15 @@ func _on_player_player_grenade(pos, direction):
 	grenade.position = pos
 	grenade.linear_velocity = direction * grenade.speed
 	$Projectiles.add_child(grenade, true)
+
+
+func _on_house_player_entered():
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property($Player/Camera2D, 'zoom', Vector2(0.8, 0.8), 1)
+
+
+func _on_house_player_exited():
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property($Player/Camera2D, 'zoom', Vector2(0.6, 0.6), 1)

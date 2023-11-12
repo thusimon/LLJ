@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7gyltt7qktrs"]
+
+[ext_resource type="Texture2D" uid="uid://y673o27w2u31" path="res://resources/graphics/enemies/drone.png" id="1_jsrvx"]
+
+[sub_resource type="GDScript" id="GDScript_f3ppm"]
+script/source = "extends CharacterBody2D
+
+func _process(_delta):
+	var direction = Vector2.RIGHT
+	velocity = direction * 100
+	move_and_slide()
+	
+func hit():
+	print('drone damanged')
+"
+
+[node name="Drone" type="CharacterBody2D"]
+script = SubResource("GDScript_f3ppm")
+
+[node name="DroneImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_jsrvx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-27, -66, 0, -69, 30, -66, 56, -40, 141, -31, 150, -8, 150, 1, 70, 5, 68, 23, 62, 39, 54, 55, 41, 64, 0, 73, -40, 63, -51, 59, -67, 26, -70, 13, -146, 21, -149, 11, -142, -13, -59, -36)

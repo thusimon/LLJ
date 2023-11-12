@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0i77x3oja74a"]
+[gd_scene load_steps=19 format=3 uid="uid://d0i77x3oja74a"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_8ki7d"]
 [ext_resource type="Texture2D" uid="uid://bhmicf3yx7qkx" path="res://resources/graphics/ground/stones.png" id="2_chdpu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://x8w7jokqk2qw" path="res://scenes/objects/house.tscn" id="10_kbkbj"]
 [ext_resource type="PackedScene" uid="uid://bxr2pbg8or2eh" path="res://scenes/objects/smoke_vent.tscn" id="13_aqwcq"]
 [ext_resource type="PackedScene" uid="uid://drqjy5qg1nto1" path="res://scenes/objects/simple_fan.tscn" id="14_wwvrg"]
+[ext_resource type="PackedScene" uid="uid://b7gyltt7qktrs" path="res://scenes/players/drone.tscn" id="15_wewsn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ophxe"]
 resource_name = "Walls"
@@ -129,6 +130,9 @@ position_smoothing_enabled = true
 
 [node name="SmokeVent" parent="." instance=ExtResource("13_aqwcq")]
 position = Vector2(-510, 1000)
+
+[node name="Drone" parent="." instance=ExtResource("15_wewsn")]
+position = Vector2(363, 722)
 
 [connection signal="player_entered" from="House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="House" to="." method="_on_house_player_exited"]

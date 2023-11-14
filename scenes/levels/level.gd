@@ -1,4 +1,5 @@
 extends Node2D
+class_name LevelBase
 
 const laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 const grenate_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
@@ -8,18 +9,8 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
-
-func _on_gate_body_entered(body):
-	print('entered gate')
-	var tween = create_tween()
-	tween.tween_property($Player, 'speed', 0, 0.5)
-
-
-func _on_gate_body_exited(body):
-	pass
-
 
 func _on_player_player_laser(pos, direction):
 	var laser = laser_scene.instantiate() as Area2D

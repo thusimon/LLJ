@@ -102,7 +102,7 @@ rotation = 1.5708
 scale = Vector2(-1, -1)
 
 [node name="Player" parent="." index="4"]
-position = Vector2(4747, 396)
+position = Vector2(5068, 370)
 
 [node name="Exit" type="Area2D" parent="." index="5"]
 

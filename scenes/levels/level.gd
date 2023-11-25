@@ -38,3 +38,8 @@ func _on_house_player_exited():
 	var tween = create_tween()
 	tween.set_parallel(true)
 	tween.tween_property($Player/Camera2D, 'zoom', Vector2(0.6, 0.6), 1)
+
+
+func _on_player_player_reward():
+	$UI.update_laser_amount()
+	$UI.update_grenade_amount()

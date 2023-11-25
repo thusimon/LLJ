@@ -20,7 +20,8 @@ func _process(_delta):
 	
 	var mouse_pos = get_global_mouse_position()
 	look_at(mouse_pos)
-	if Input.is_action_pressed("Primary") and can_laser:
+	if Input.is_action_pressed("Primary") and can_laser and Globals.laser_amount > 0:
+		Globals.laser_amount -= 1
 		can_laser = false
 		$GPUParticles2D.emitting = true
 		$LaserTimer.start()
@@ -28,7 +29,8 @@ func _process(_delta):
 		# Vect2_mousePos - Vect2_playerPos
 		var direction = (mouse_pos - position).normalized()
 		player_laser.emit($ShootStartMarker.global_position, direction)
-	if Input.is_action_pressed("Secondary") and can_grenade:
+	if Input.is_action_pressed("Secondary") and can_grenade and Globals.grenade_amount > 0:
+		Globals.grenade_amount -= 1
 		can_grenade = false
 		$GrenadeTimer.start()
 		var direction = (mouse_pos - position).normalized()

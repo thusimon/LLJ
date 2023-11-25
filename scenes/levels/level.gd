@@ -18,12 +18,14 @@ func _on_player_player_laser(pos, direction):
 	laser.rotation = direction.angle()
 	laser.direction = direction
 	$Projectiles.add_child(laser, true)
+	$UI.update_laser_amount()
 
 func _on_player_player_grenade(pos, direction):
 	var grenade = grenate_scene.instantiate() as RigidBody2D
 	grenade.position = pos
 	grenade.linear_velocity = direction * grenade.speed
 	$Projectiles.add_child(grenade, true)
+	$UI.update_grenade_amount()
 
 
 func _on_house_player_entered():

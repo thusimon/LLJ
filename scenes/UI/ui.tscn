@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cil7drtklskjc"]
+[gd_scene load_steps=8 format=3 uid="uid://cil7drtklskjc"]
 
 [ext_resource type="Texture2D" uid="uid://cmmdqsfa65oij" path="res://resources/graphics/ui/bullet.png" id="1_4qeih"]
 [ext_resource type="Theme" uid="uid://drgqdhrvr4qrl" path="res://scenes/UI/ThemeDefault.tres" id="1_nx53n"]
+[ext_resource type="Script" path="res://scenes/UI/ui.gd" id="1_vhd4s"]
 [ext_resource type="Texture2D" uid="uid://bxierwjkq8hm6" path="res://resources/graphics/ui/grenade.png" id="3_hglo1"]
+[ext_resource type="Texture2D" uid="uid://bba0ycotbd8ht" path="res://resources/graphics/ui/progress_bar/bg.png" id="4_s8idh"]
+[ext_resource type="Texture2D" uid="uid://cl4tbflddbvqs" path="res://resources/graphics/ui/progress_bar/over.png" id="5_el15x"]
+[ext_resource type="Texture2D" uid="uid://v3osi3ato8lf" path="res://resources/graphics/ui/progress_bar/progress.png" id="5_nh5nd"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_vhd4s")
 
 [node name="LaserCounter" type="Control" parent="."]
 layout_mode = 3
@@ -28,7 +33,6 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="LaserCounter/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_nx53n")
-text = "20"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="LaserCounter/VBoxContainer"]
@@ -59,10 +63,28 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="GrenadeCounter/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_nx53n")
-text = "5"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="GrenadeCounter/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_hglo1")
 expand_mode = 4
+
+[node name="HPContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -40.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HPContainer"]
+layout_mode = 2
+value = 80.0
+texture_under = ExtResource("4_s8idh")
+texture_over = ExtResource("5_el15x")
+texture_progress = ExtResource("5_nh5nd")

@@ -1,7 +1,7 @@
 extends Area2D
 
 var rotation_speed = 3
-var options = ['laser', 'grenade', 'hp']
+var options = ['laser', 'laser', 'laser', 'laser', 'grenade', 'hp']
 var Red: Color = Color(0.8, 0.2, 0.2)
 var Green: Color = Color(0.2, 0.8, 0.2)
 var Blue: Color = Color(0.2, 0.2, 0.8)
@@ -18,14 +18,11 @@ func _ready():
 			$Sprite2D.modulate = Green
 		_:
 			print('unknown type')
-		
-		
-	
 
 func _process(delta):
 	rotation += delta * rotation_speed
 
-
 func _on_body_entered(body):
-	body.get_reward(type)
-	queue_free()
+	if 'get_reward' in body:
+		body.get_reward(type)
+		queue_free()

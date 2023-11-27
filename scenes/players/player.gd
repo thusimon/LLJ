@@ -6,7 +6,6 @@ var can_laser: bool = true
 var can_grenade: bool = true
 signal player_laser(pos, direction)
 signal player_grenade(pos, direction)
-signal player_reward
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,4 +50,5 @@ func get_reward(type: String) -> void:
 			Globals.laser_amount += 10
 		'grenade':
 			Globals.grenade_amount += 1
-	player_reward.emit()
+		'hp':
+			Globals.hp += 20

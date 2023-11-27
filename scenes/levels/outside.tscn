@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bxr2pbg8or2eh" path="res://scenes/objects/smoke_vent.tscn" id="12_5i7cm"]
 [ext_resource type="PackedScene" uid="uid://x8w7jokqk2qw" path="res://scenes/objects/house.tscn" id="12_dxnlm"]
 [ext_resource type="PackedScene" uid="uid://b7gyltt7qktrs" path="res://scenes/players/drone.tscn" id="13_62kqq"]
-[ext_resource type="PackedScene" uid="uid://vyahjddlf1w" path="res://scenes/items/reward.tscn" id="16_jgnm1"]
+[ext_resource type="PackedScene" uid="uid://bdyfqkxjtravk" path="res://scenes/objects/crate.tscn" id="17_qlko3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ophxe"]
 resource_name = "Walls"
@@ -114,9 +114,6 @@ position = Vector2(368, 3125)
 [node name="Gate" parent="." index="1" instance=ExtResource("11_bwfeq")]
 position = Vector2(530, -677)
 
-[node name="Player" parent="." index="3"]
-position = Vector2(570, 413)
-
 [node name="SimpleFan" parent="." index="4" instance=ExtResource("10_xa31f")]
 position = Vector2(-170, 995)
 
@@ -126,8 +123,14 @@ position = Vector2(-510, 1000)
 [node name="Drone" parent="." index="6" instance=ExtResource("13_62kqq")]
 position = Vector2(363, 722)
 
-[node name="Reward" parent="." index="8" instance=ExtResource("16_jgnm1")]
-position = Vector2(161, 472)
+[node name="Player" parent="." index="7"]
+position = Vector2(570, 413)
+
+[node name="Crate" parent="." index="8" instance=ExtResource("17_qlko3")]
+position = Vector2(1368, 480)
+
+[node name="Crate2" parent="." index="9" instance=ExtResource("17_qlko3")]
+position = Vector2(1371, 320)
 
 [connection signal="body_entered" from="Gate" to="." method="_on_gate_body_entered"]
 [connection signal="body_exited" from="Gate" to="." method="_on_gate_body_exited"]

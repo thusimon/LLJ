@@ -12,14 +12,15 @@ collision_layer = 4
 script = ExtResource("1_hrbjs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_vfxfl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_kui6p")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 2.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_d54di")
-texture_scale = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

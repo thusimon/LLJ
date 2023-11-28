@@ -127,10 +127,11 @@ position = Vector2(363, 722)
 position = Vector2(570, 413)
 
 [node name="Crate" parent="." index="8" instance=ExtResource("17_qlko3")]
-position = Vector2(1368, 480)
+position = Vector2(1753, 320)
+rotation = 0.785398
 
 [node name="Crate2" parent="." index="9" instance=ExtResource("17_qlko3")]
-position = Vector2(1371, 320)
+position = Vector2(1278, 404)
 
 [connection signal="body_entered" from="Gate" to="." method="_on_gate_body_entered"]
 [connection signal="body_exited" from="Gate" to="." method="_on_gate_body_exited"]

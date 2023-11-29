@@ -17,6 +17,7 @@ func _process(_delta):
 	var move = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = move * speed
 	move_and_slide()
+	Globals.player_pos = position
 	
 	var mouse_pos = get_global_mouse_position()
 	look_at(mouse_pos)

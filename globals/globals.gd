@@ -27,3 +27,5 @@ var hp = 80:
 		else:
 			hp = val
 		stats_change.emit('hp')
+		
+var player_pos: Vector2 = Vector2.DOWN

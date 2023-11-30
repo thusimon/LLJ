@@ -135,7 +135,7 @@ position = Vector2(1278, 404)
 position = Vector2(754, 410)
 
 [node name="Scout" parent="." index="12" instance=ExtResource("17_acgww")]
-position = Vector2(-575, 433)
+position = Vector2(1942, 1118)
 
 [connection signal="body_entered" from="Gate" to="." method="_on_gate_body_entered"]
 [connection signal="body_exited" from="Gate" to="." method="_on_gate_body_exited"]

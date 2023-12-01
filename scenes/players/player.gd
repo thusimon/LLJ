@@ -11,7 +11,6 @@ signal player_grenade(pos, direction)
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var move = Input.get_vector("Left", "Right", "Up", "Down")
@@ -53,3 +52,6 @@ func get_reward(type: String) -> void:
 			Globals.grenade_amount += 1
 		'hp':
 			Globals.hp += 20
+
+func hit():
+	print('player was hit')

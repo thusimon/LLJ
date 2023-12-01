@@ -14,7 +14,7 @@ func hit():
 	print('drone damanged')
 "
 
-[node name="Drone" type="CharacterBody2D"]
+[node name="Drone" type="CharacterBody2D" groups=["Damagable"]]
 script = SubResource("GDScript_f3ppm")
 
 [node name="DroneImage" type="Sprite2D" parent="."]

@@ -13,7 +13,6 @@ func _process(_delta):
 func _on_watch_area_body_entered(_body):
 	is_in_range = true
 
-
 func _on_watch_area_body_exited(_body):
 	is_in_range = false
 
@@ -29,3 +28,6 @@ func shoot():
 
 func _on_timer_timeout():
 	can_shoot = true
+	
+func hit():
+	print('scout was hit')

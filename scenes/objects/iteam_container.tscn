@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/objects/iteam_container.gd" id="1_aw16u"]
 
-[node name="IteamContainer" type="StaticBody2D" groups=["Items"]]
+[node name="IteamContainer" type="StaticBody2D" groups=["Damagable", "Items"]]
 collision_layer = 4
 collision_mask = 23
 script = ExtResource("1_aw16u")

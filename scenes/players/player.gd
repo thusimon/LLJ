@@ -7,7 +7,6 @@ var can_grenade: bool = true
 signal player_laser(pos, direction)
 signal player_grenade(pos, direction)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
@@ -36,10 +35,8 @@ func _process(_delta):
 		var direction = (mouse_pos - position).normalized()
 		player_grenade.emit($ShootStartMarker.global_position, direction)
 
-
 func _on_laser_timer_timeout():
 	can_laser = true
-
 
 func _on_grenade_timer_timeout():
 	can_grenade = true
@@ -54,4 +51,4 @@ func get_reward(type: String) -> void:
 			Globals.hp += 20
 
 func hit():
-	print('player was hit')
+	Globals.hp -= 10

@@ -16,16 +16,22 @@ var grenade_amount = 5:
 		grenade_amount = val
 		stats_change.emit('grenade')
 
+var play_vulnerable = true
 var hp = 80:
 	get:
 		return hp
 	set(val):
-		if val >= 100:
-			hp = 100
-		elif val <= 0:
-			hp = 0
+		if val >= hp:
+			hp = min(val, 100)
 		else:
-			hp = val
+			if play_vulnerable:
+				hp = max(val, 0)
+				play_vulnerable = false
+				player_invulnerable_timer()
 		stats_change.emit('hp')
 		
 var player_pos: Vector2 = Vector2.DOWN
+
+func player_invulnerable_timer():
+	await get_tree().create_timer(0.5).timeout
+	play_vulnerable = true

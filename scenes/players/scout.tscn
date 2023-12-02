@@ -31,8 +31,13 @@ position = Vector2(140, -22)
 [node name="Marker2D2" type="Marker2D" parent="LaserPosition"]
 position = Vector2(148, 20)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="ShootTimer" type="Timer" parent="Timers"]
 wait_time = 2.0
+
+[node name="VulnTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
 
 [node name="WatchArea" type="Area2D" parent="."]
 collision_layer = 8
@@ -41,6 +46,7 @@ collision_layer = 8
 shape = SubResource("CircleShape2D_aft72")
 metadata/_edit_lock_ = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timers/ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="Timers/VulnTimer" to="." method="_on_vuln_timer_timeout"]
 [connection signal="body_entered" from="WatchArea" to="." method="_on_watch_area_body_entered"]
 [connection signal="body_exited" from="WatchArea" to="." method="_on_watch_area_body_exited"]

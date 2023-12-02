@@ -34,6 +34,7 @@ func hit():
 	if vulnerable:
 		vulnerable = false
 		vuln_timer.start()
+		$Sprite2D.material.set_shader_parameter('progress', 0.5)
 		hp -= 10
 		if hp <= 0:
 			queue_free()
@@ -43,3 +44,4 @@ func _on_shoot_timer_timeout():
 
 func _on_vuln_timer_timeout():
 	vulnerable = true
+	$Sprite2D.material.set_shader_parameter('progress', 0)

@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb3mqsjnwsa7s"]
+[gd_scene load_steps=7 format=3 uid="uid://cb3mqsjnwsa7s"]
 
 [ext_resource type="Script" path="res://scenes/players/scout.gd" id="1_qf2je"]
 [ext_resource type="Texture2D" uid="uid://bush81b7fp7kv" path="res://resources/graphics/enemies/scout.png" id="1_yxbag"]
+[ext_resource type="Shader" path="res://scenes/players/scout.gdshader" id="2_as65y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wydn"]
+shader = ExtResource("2_as65y")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gssy2"]
 radius = 66.0076
@@ -15,6 +21,7 @@ collision_mask = 31
 script = ExtResource("1_qf2je")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2wydn")
 position = Vector2(28, 35)
 rotation = 1.5708
 texture = ExtResource("1_yxbag")
@@ -40,6 +47,7 @@ wait_time = 2.0
 wait_time = 0.5
 
 [node name="WatchArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WatchArea"]

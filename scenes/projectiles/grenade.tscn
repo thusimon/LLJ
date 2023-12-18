@@ -140,10 +140,10 @@ texture = ExtResource("1_po0op")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../PointLight2D")
-autoplay = "Light"
 libraries = {
 "": SubResource("AnimationLibrary_065cw")
 }
+autoplay = "Light"
 
 [node name="Explosion" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

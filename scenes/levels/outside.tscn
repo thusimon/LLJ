@@ -117,24 +117,24 @@ position = Vector2(-170, 995)
 [node name="SmokeVent" parent="." index="5" instance=ExtResource("12_5i7cm")]
 position = Vector2(-510, 1000)
 
-[node name="Drone" parent="." index="6" instance=ExtResource("13_62kqq")]
-position = Vector2(165, 226)
+[node name="Drone" parent="Enemies" index="0" instance=ExtResource("13_62kqq")]
+position = Vector2(89, 455)
 
-[node name="Crate" parent="." index="8" instance=ExtResource("17_qlko3")]
+[node name="Scout" parent="Enemies" index="1" instance=ExtResource("17_acgww")]
+position = Vector2(3856, 1232)
+
+[node name="Bug" parent="Enemies" index="2" instance=ExtResource("18_youih")]
+position = Vector2(-1834, 1101)
+
+[node name="Crate" parent="." index="7" instance=ExtResource("17_qlko3")]
 position = Vector2(1753, 320)
 rotation = 0.785398
 
-[node name="Crate2" parent="." index="9" instance=ExtResource("17_qlko3")]
+[node name="Crate2" parent="." index="8" instance=ExtResource("17_qlko3")]
 position = Vector2(1278, 404)
 
-[node name="Player" parent="." index="10"]
+[node name="Player" parent="." index="9"]
 position = Vector2(754, 410)
-
-[node name="Scout" parent="." index="12" instance=ExtResource("17_acgww")]
-position = Vector2(3856, 1232)
-
-[node name="Bug" parent="." index="13" instance=ExtResource("18_youih")]
-position = Vector2(-1834, 1101)
 
 [connection signal="body_entered" from="Gate" to="." method="_on_gate_body_entered"]
 [connection signal="body_exited" from="Gate" to="." method="_on_gate_body_exited"]

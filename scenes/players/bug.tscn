@@ -210,7 +210,7 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
-[node name="Particles" type="Node" parent="."]
+[node name="Particles" type="Node2D" parent="."]
 
 [node name="HitParticle" type="GPUParticles2D" parent="Particles"]
 modulate = Color(0.0627451, 0.364706, 0.231373, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bdkfrx3jnq8cs"]
+[gd_scene load_steps=24 format=3 uid="uid://bdkfrx3jnq8cs"]
 
 [ext_resource type="PackedScene" uid="uid://d0i77x3oja74a" path="res://scenes/levels/level.tscn" id="1_ghpnw"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_h6mts"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b7gyltt7qktrs" path="res://scenes/players/drone.tscn" id="13_62kqq"]
 [ext_resource type="PackedScene" uid="uid://cb3mqsjnwsa7s" path="res://scenes/players/scout.tscn" id="17_acgww"]
 [ext_resource type="PackedScene" uid="uid://bdyfqkxjtravk" path="res://scenes/objects/crate.tscn" id="17_qlko3"]
+[ext_resource type="PackedScene" uid="uid://ctsc440rkcrtt" path="res://scenes/players/car.tscn" id="18_wniip"]
 [ext_resource type="PackedScene" uid="uid://bwy7bq0s67nag" path="res://scenes/players/bug.tscn" id="18_youih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ophxe"]
@@ -52,6 +53,12 @@ texture_region_size = Vector2i(390, 390)
 tile_size = Vector2i(390, 390)
 sources/0 = SubResource("TileSetAtlasSource_ophxe")
 sources/1 = SubResource("TileSetAtlasSource_jmn3g")
+
+[sub_resource type="Curve2D" id="Curve2D_7qjqw"]
+_data = {
+"points": PackedVector2Array(-130.814, 208.235, 130.814, -208.235, 911, 55, -408.461, -8.00904, 408.461, 8.00904, 2019, -132, -146.832, -181.538, 146.832, 181.538, 2972, 177, 165.52, -216.244, -165.52, 216.244, 2727, 1053, 296.334, -21.3574, -296.334, 21.3574, 1982, 1360, 274.977, 221.583, -274.977, -221.583, 1154, 1101, -178.869, 363.076, 178.869, -363.076, 911, 55)
+}
+point_count = 7
 
 [node name="Outside" instance=ExtResource("1_ghpnw")]
 script = ExtResource("2_h6mts")
@@ -118,23 +125,31 @@ position = Vector2(-170, 995)
 position = Vector2(-510, 1000)
 
 [node name="Drone" parent="Enemies" index="0" instance=ExtResource("13_62kqq")]
-position = Vector2(89, 455)
+position = Vector2(-74, 562)
 
 [node name="Scout" parent="Enemies" index="1" instance=ExtResource("17_acgww")]
-position = Vector2(3856, 1232)
+position = Vector2(5423, 2775)
 
 [node name="Bug" parent="Enemies" index="2" instance=ExtResource("18_youih")]
 position = Vector2(-1834, 1101)
 
+[node name="Path2D" type="Path2D" parent="Enemies" index="3"]
+position = Vector2(1000, 200)
+curve = SubResource("Curve2D_7qjqw")
+
+[node name="Car" parent="Enemies/Path2D" index="0" instance=ExtResource("18_wniip")]
+position = Vector2(911, 55)
+rotation = -1.0099
+
 [node name="Crate" parent="." index="7" instance=ExtResource("17_qlko3")]
-position = Vector2(1753, 320)
+position = Vector2(1643, 288)
 rotation = 0.785398
 
 [node name="Crate2" parent="." index="8" instance=ExtResource("17_qlko3")]
-position = Vector2(1278, 404)
+position = Vector2(1310, 249)
 
 [node name="Player" parent="." index="9"]
-position = Vector2(754, 410)
+position = Vector2(1299, 869)
 
 [connection signal="body_entered" from="Gate" to="." method="_on_gate_body_entered"]
 [connection signal="body_exited" from="Gate" to="." method="_on_gate_body_exited"]

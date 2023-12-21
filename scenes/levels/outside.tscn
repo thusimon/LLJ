@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdkfrx3jnq8cs"]
+[gd_scene load_steps=22 format=3 uid="uid://bdkfrx3jnq8cs"]
 
 [ext_resource type="PackedScene" uid="uid://d0i77x3oja74a" path="res://scenes/levels/level.tscn" id="1_ghpnw"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_h6mts"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b7gyltt7qktrs" path="res://scenes/players/drone.tscn" id="13_62kqq"]
 [ext_resource type="PackedScene" uid="uid://cb3mqsjnwsa7s" path="res://scenes/players/scout.tscn" id="17_acgww"]
 [ext_resource type="PackedScene" uid="uid://bdyfqkxjtravk" path="res://scenes/objects/crate.tscn" id="17_qlko3"]
+[ext_resource type="PackedScene" uid="uid://bfru05d6egb5h" path="res://scenes/players/hunter.tscn" id="18_8c8cj"]
 [ext_resource type="PackedScene" uid="uid://ctsc440rkcrtt" path="res://scenes/players/car.tscn" id="18_wniip"]
 [ext_resource type="PackedScene" uid="uid://bwy7bq0s67nag" path="res://scenes/players/bug.tscn" id="18_youih"]
 
@@ -24,6 +25,12 @@ _data = {
 "points": PackedVector2Array(-130.814, 208.235, 130.814, -208.235, 911, 55, -408.461, -8.00904, 408.461, 8.00904, 2019, -132, -146.832, -181.538, 146.832, 181.538, 2972, 177, 165.52, -216.244, -165.52, 216.244, 2727, 1053, 296.334, -21.3574, -296.334, 21.3574, 1982, 1360, 274.977, 221.583, -274.977, -221.583, 1154, 1101, -178.869, 363.076, 178.869, -363.076, 911, 55)
 }
 point_count = 7
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ds2ig"]
+vertices = PackedVector2Array(6115, 4304, 7529, 4813, 5048, 4833, 5987, 4308, 7676, 3111, 8319, 1833, 8309, 5203, 7673, 4938, 4524, 5192, 5052, 4939, 7037, 2611, 7036, 2470, 7537, 3107, 4416, 2475, 4416, 4326, 3772, 3525, 3771, 1941, 3002, 4303, 3636, 3524, 2989, 2721, 3639, 1938, 6650, 3641, 6640, 3774, 6115, 3868, 5458, 3762, 5990, 3876, 4416, 1824, 2102, -105, 2100, -515, 4409, -516, 2044, 21, 1939, 2014, 1958, 112, 2065, 2075, 36, 2014, 29, 115, 2139, 2181, 2861, 2723, 2162, 2350, 2149, 5195, 2851, 4298, 4558, 4327, 6123, 3627, 6123, 3626, 6123, 3510, 5976, 3513, 5458, 3629, 6118, 3103, 4564, 2600, 5981, 3096)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 11, 5, 4, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(15, 14, 8, 17, 18), PackedInt32Array(18, 17, 19, 20), PackedInt32Array(21, 10, 12, 1, 22), PackedInt32Array(22, 1, 0, 23), PackedInt32Array(24, 22, 23, 25), PackedInt32Array(26, 5, 11, 13, 16), PackedInt32Array(27, 28, 29, 26, 16, 20), PackedInt32Array(30, 27, 20), PackedInt32Array(31, 32, 30, 20, 33), PackedInt32Array(34, 35, 32, 31), PackedInt32Array(36, 33, 20, 19, 37), PackedInt32Array(38, 36, 37), PackedInt32Array(39, 38, 37, 40), PackedInt32Array(8, 39, 40, 17), PackedInt32Array(9, 8, 14, 41, 2), PackedInt32Array(21, 42, 43), PackedInt32Array(21, 43, 44, 10), PackedInt32Array(45, 44, 43, 46), PackedInt32Array(10, 44, 47), PackedInt32Array(48, 10, 47, 49), PackedInt32Array(41, 48, 49, 46), PackedInt32Array(24, 25, 3, 2, 41), PackedInt32Array(49, 45, 46), PackedInt32Array(24, 41, 46)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(19, 106, 26, 2024, 1937, 2024, 2058, 2083, 2129, 2185, 2152, 2351, 2139, 5206, 4525, 5202, 2992, 4293, 2861, 4288, 2871, 2733, 2979, 2731, 2992, 4293, 4524, 5202, 8319, 5214, 8331, 1824, 7026, 2480, 7027, 2601, 4555, 2590, 4548, 4317, 5062, 4929, 5058, 4843, 7539, 4823, 7547, 3117, 6108, 3113, 6113, 3500, 6113, 3637, 6639, 3651, 6631, 3764, 6105, 3879, 6105, 4294, 5997, 4298, 6000, 3885, 6107, 3879, 6631, 3764, 5468, 3752, 5468, 3639, 6113, 3636, 6113, 3500, 5986, 3503, 5991, 3107, 6108, 3113, 7547, 3117, 7666, 3121, 7663, 4928, 5062, 4929, 4548, 4317, 4426, 4316, 3762, 3515, 3646, 3514, 3649, 1948, 3761, 1951, 3762, 3515, 4426, 4316, 4426, 2485, 7026, 2480, 8332, 1824, 4426, 1814, 4419, -527, 2090, -525, 2092, -107, 2036, 15, 1954, 102)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Outside" instance=ExtResource("1_ghpnw")]
 script = ExtResource("2_h6mts")
@@ -93,7 +100,7 @@ position = Vector2(-510, 1000)
 position = Vector2(-74, 562)
 
 [node name="Scout" parent="Enemies" index="1" instance=ExtResource("17_acgww")]
-position = Vector2(5423, 2775)
+position = Vector2(5756, 1419)
 
 [node name="Bug" parent="Enemies" index="2" instance=ExtResource("18_youih")]
 position = Vector2(-1834, 1101)
@@ -105,6 +112,12 @@ curve = SubResource("Curve2D_7qjqw")
 [node name="Car" parent="Enemies/Path2D" index="0" instance=ExtResource("18_wniip")]
 position = Vector2(911, 55)
 rotation = -1.0099
+
+[node name="HunterRegion2D" type="NavigationRegion2D" parent="Enemies" index="4"]
+navigation_polygon = SubResource("NavigationPolygon_ds2ig")
+
+[node name="Hunter" parent="Enemies/HunterRegion2D" index="0" instance=ExtResource("18_8c8cj")]
+position = Vector2(2868, 1596)
 
 [node name="Crate" parent="." index="7" instance=ExtResource("17_qlko3")]
 position = Vector2(1643, 288)

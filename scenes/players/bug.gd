@@ -10,7 +10,7 @@ func hit():
 	if vulnerable:
 		vulnerable = false
 		health -= 10
-		$AnimatedSprite2D.material.set_shader_parameter('progress', 0.8)
+		$AnimatedSprite2D.material.set_shader_parameter('progress', 0.5)
 		$Particles/HitParticle.emitting = true
 		$Timers/HitTimer.start()
 		print('bug hit')

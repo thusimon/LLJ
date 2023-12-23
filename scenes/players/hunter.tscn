@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://bfru05d6egb5h"]
+[gd_scene load_steps=26 format=3 uid="uid://bfru05d6egb5h"]
 
 [ext_resource type="Script" path="res://scenes/players/hunter.gd" id="1_pl385"]
+[ext_resource type="Shader" path="res://scenes/players/hunter.gdshader" id="2_5710l"]
 [ext_resource type="Texture2D" uid="uid://xy406jw31a05" path="res://resources/graphics/enemies/hunter/parts/torso.png" id="2_bposc"]
 [ext_resource type="Texture2D" uid="uid://b3w3qw1bnohoq" path="res://resources/graphics/enemies/hunter/parts/leg_front_inner.png" id="3_jhk26"]
 [ext_resource type="Texture2D" uid="uid://bbjrfu4wy8ba6" path="res://resources/graphics/enemies/hunter/parts/leg_front_outer.png" id="4_g7cb6"]
@@ -8,16 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://ymewv4vyybgu" path="res://resources/graphics/enemies/hunter/parts/leg_back_inner.png" id="6_3paq0"]
 [ext_resource type="Texture2D" uid="uid://cb18n1873fl7q" path="res://resources/graphics/enemies/hunter/parts/claw.png" id="6_bbg7c"]
 [ext_resource type="Texture2D" uid="uid://detc70m3tej3f" path="res://resources/graphics/enemies/hunter/parts/leg_back_outer.png" id="7_bulpi"]
+[ext_resource type="Texture2D" uid="uid://ctrgq8nlunah2" path="res://resources/graphics/explosions/grunge.png" id="9_6nsiv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nyfx1"]
-radius = 38.0
-height = 234.0
+radius = 64.0
+height = 294.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1b1rp"]
-radius = 846.038
+radius = 1175.65
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sbw67"]
-radius = 154.013
+radius = 85.0235
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_we6rl"]
+shader = ExtResource("2_5710l")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_b3bip"]
 resource_name = "LeftFront"
@@ -60,59 +67,6 @@ modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_b3bip")
 modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_hiiqo")
 modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_8sjo3")
 modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_sbouc")
-
-[sub_resource type="Animation" id="Animation_eshcg"]
-resource_name = "walk"
-length = 1.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Targets/LFL:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-94, -122), Vector2(-110, -167), Vector2(-53, -238), Vector2(-119, -167), Vector2(-88, -112)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Targets/RFL:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(79, -252), Vector2(125, -196), Vector2(93, -117), Vector2(118, -192), Vector2(81, -238)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Targets/LBL:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-125, 143), Vector2(-44, 208), Vector2(-111, 159), Vector2(-120, 107), Vector2(-132, 151)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Targets/RBL:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(82, 207), Vector2(119, 145), Vector2(67, 125), Vector2(137, 156), Vector2(68, 209)]
-}
 
 [sub_resource type="Animation" id="Animation_4gtk8"]
 length = 0.001
@@ -192,6 +146,73 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, -1.0472, 0.349066, 0.0]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_eshcg"]
+resource_name = "walk"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Targets/LFL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-94, -122), Vector2(-110, -167), Vector2(-53, -238), Vector2(-119, -167), Vector2(-88, -112)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Targets/RFL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(79, -252), Vector2(125, -196), Vector2(93, -117), Vector2(118, -192), Vector2(81, -238)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Targets/LBL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-125, 143), Vector2(-44, 208), Vector2(-111, 159), Vector2(-120, 107), Vector2(-132, 151)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Targets/RBL:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(82, 207), Vector2(119, 145), Vector2(67, 125), Vector2(137, 156), Vector2(68, 209)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d5phm"]
 _data = {
@@ -200,26 +221,43 @@ _data = {
 "walk": SubResource("Animation_eshcg")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cx87t"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8gd22"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.4
+anim_offset_max = 1.0
+
 [node name="Hunter" type="CharacterBody2D"]
 script = ExtResource("1_pl385")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
+position = Vector2(0, -45)
 shape = SubResource("CapsuleShape2D_nyfx1")
-metadata/_edit_lock_ = true
 
 [node name="WatchArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
-collision_mask = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WatchArea"]
+position = Vector2(0, -38)
 shape = SubResource("CircleShape2D_1b1rp")
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-1, -219)
 shape = SubResource("CircleShape2D_sbw67")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -230,7 +268,16 @@ debug_enabled = true
 [node name="NavigationTimer" type="Timer" parent="Timers"]
 autostart = true
 
+[node name="AttackTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="HitTimer" type="Timer" parent="Timers"]
+wait_time = 0.2
+one_shot = true
+
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+material = SubResource("ShaderMaterial_we6rl")
 modification_stack = SubResource("SkeletonModificationStack2D_onmq0")
 
 [node name="Torso" type="Bone2D" parent="Skeleton2D"]
@@ -247,6 +294,7 @@ metadata/_edit_lock_ = true
 [node name="RFL" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(32, -71)
 rotation = -1.14434
+scale = Vector2(1, 1)
 rest = Transform2D(0.773671, -0.63358, 0.63358, 0.773671, 32, -71)
 auto_calculate_length_and_angle = false
 length = 85.1469
@@ -314,6 +362,7 @@ texture = ExtResource("5_e7kr6")
 
 [node name="RC" type="Node2D" parent="Skeleton2D/Torso/Head"]
 position = Vector2(55.0295, 16.9044)
+rotation = -0.349066
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Torso/Head/RC"]
 position = Vector2(45.0382, 21.9217)
@@ -322,6 +371,7 @@ texture = ExtResource("6_bbg7c")
 
 [node name="LC" type="Node2D" parent="Skeleton2D/Torso/Head"]
 position = Vector2(54.9721, -16.0956)
+rotation = 0.349066
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Torso/Head/LC"]
 position = Vector2(42.9634, -21.0712)
@@ -403,6 +453,19 @@ libraries = {
 "": SubResource("AnimationLibrary_d5phm")
 }
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.137255, 0.572549, 0.376471, 1)
+material = SubResource("CanvasItemMaterial_cx87t")
+position = Vector2(0, -48)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_8gd22")
+texture = ExtResource("9_6nsiv")
+
 [connection signal="body_entered" from="WatchArea" to="." method="_on_watch_area_body_entered"]
 [connection signal="body_exited" from="WatchArea" to="." method="_on_watch_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="Timers/NavigationTimer" to="." method="_on_navigation_timer_timeout"]
+[connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Timers/HitTimer" to="." method="_on_hit_timer_timeout"]

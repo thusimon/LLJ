@@ -13,7 +13,6 @@ func hit():
 		$AnimatedSprite2D.material.set_shader_parameter('progress', 0.5)
 		$Particles/HitParticle.emitting = true
 		$Timers/HitTimer.start()
-		print('bug hit')
 	if health <= 0:
 		await get_tree().create_timer(0.5).timeout
 		queue_free()

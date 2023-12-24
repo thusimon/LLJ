@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk5nwn0f58atn"]
+
+[ext_resource type="AudioStream" uid="uid://dwjuq1qna5b2y" path="res://resources/audio/battleThemeA.mp3" id="1_rm04o"]
+
+[node name="Music" type="Node"]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_rm04o")
+volume_db = -15.0
+autoplay = true

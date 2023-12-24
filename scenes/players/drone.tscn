@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7gyltt7qktrs"]
+[gd_scene load_steps=11 format=3 uid="uid://b7gyltt7qktrs"]
 
 [ext_resource type="Texture2D" uid="uid://y673o27w2u31" path="res://resources/graphics/enemies/drone.png" id="1_jsrvx"]
 [ext_resource type="Shader" path="res://scenes/players/drone.gdshader" id="1_pe7l2"]
 [ext_resource type="Texture2D" uid="uid://b3tvy1ugbwxxk" path="res://resources/graphics/explosions/explosion_3.png" id="2_cpm2a"]
+[ext_resource type="AudioStream" uid="uid://rcatqwg12evp" path="res://resources/audio/explosion.wav" id="4_ragqh"]
 
 [sub_resource type="GDScript" id="GDScript_f3ppm"]
 script/source = "extends CharacterBody2D
@@ -135,6 +136,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_ragqh")
+}],
+"times": PackedFloat32Array(0.25)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4xbsw"]
 _data = {
@@ -173,6 +189,9 @@ wait_time = 0.2
 libraries = {
 "": SubResource("AnimationLibrary_4xbsw")
 }
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.0
 
 [connection signal="body_entered" from="WatchArea" to="." method="_on_watch_area_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

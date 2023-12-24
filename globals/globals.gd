@@ -2,6 +2,8 @@ extends Node
 
 signal stats_change(type: String)
 
+var player_hit_sound: AudioStreamPlayer2D
+
 var laser_amount = 20:
 	get:
 		return laser_amount
@@ -27,6 +29,7 @@ var hp = 80:
 			if play_vulnerable:
 				hp = max(val, 0)
 				play_vulnerable = false
+				player_hit_sound.play()
 				player_invulnerable_timer()
 		stats_change.emit('hp')
 		
@@ -35,3 +38,8 @@ var player_pos: Vector2 = Vector2.DOWN
 func player_invulnerable_timer():
 	await get_tree().create_timer(0.5).timeout
 	play_vulnerable = true
+
+func _ready():
+	player_hit_sound = AudioStreamPlayer2D.new()
+	player_hit_sound.stream = load('res://resources/audio/solid_impact.ogg')
+	add_child(player_hit_sound)

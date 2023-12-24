@@ -6,6 +6,7 @@ var is_hit = false
 
 func hit():
 	if not is_hit:
+		super.hit()
 		is_hit = true
 		$UpSprite.hide()
 		var pos = $SpawnPosition.global_position

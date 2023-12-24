@@ -25,4 +25,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if 'get_reward' in body:
 		body.get_reward(type)
+		$HitSound.play()
+		$Sprite2D.hide()
+		await $HitSound.finished
 		queue_free()

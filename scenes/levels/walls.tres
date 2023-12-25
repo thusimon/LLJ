@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://drxcwrls74rly"]
 
-[ext_resource type="Texture2D" uid="uid://bk5ucegj5h8hx" path="res://resources/graphics/tilesets/outside_walls.png" id="1_ti0tm"]
-[ext_resource type="Texture2D" uid="uid://cqukh25fscrss" path="res://resources/graphics/tilesets/soil.png" id="2_uksra"]
+[ext_resource type="Texture2D" uid="uid://yjmsd0c3qxeh" path="res://resources/graphics/tilesets/outside_walls.png" id="1_ti0tm"]
+[ext_resource type="Texture2D" uid="uid://dtyyqcsfofatw" path="res://resources/graphics/tilesets/soil.png" id="2_uksra"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ophxe"]
 resource_name = "Walls"
